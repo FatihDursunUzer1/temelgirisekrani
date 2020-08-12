@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    </h:head>
+    <h:form>
+        <p:panel id="panel" header="Yeni kullanıcı"  style="background-color:#ffb12a;margin-right:30% ;text-align:center; margin-left:50%">
+            <p:panelGrid columns="1" style="margin: auto">
+            <h:messages id="msgs"/>
+            <p:outputLabel for="isim" value="İsim :">
+            <p:inputText id="isim" label="fatih" required="true" value="#{kayit.name}">
+                <f:validateLength minimum="3" maximum="10"/>
+            </p:inputText>
+            </p:outputLabel>
+            <p:outputLabel for="soyisim" value="Soyisim:">
+            <p:inputText id="soyisim" label="Uzer" value="#{kayit.surname}" required="true">
+                <f:validateLength minimum="3" maximum="20"/>
+            </p:inputText>
+            </p:outputLabel>
+            <p:outputLabel for="yas" value="yas">
+            <p:inputText id="yas" value="#{kayit.sayi}"/>
+            </p:outputLabel>
+            <p:slider for="yas" minValue="12" maxValue="120"/>
+            <p:outputLabel for="Sifre" value="Sifre:">
+            <p:password  id="Sifre" value="#{kayit.sifre}" maxlength="8"/>
+            </p:outputLabel>
+        </p:panelGrid>
+            <p:commandButton update="panel" action="#{kayit.save()}" icon="pi pi-check" value="Giris"/>
+        </p:panel>
+    </h:form>
+</html>
